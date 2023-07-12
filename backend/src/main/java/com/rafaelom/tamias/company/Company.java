@@ -3,6 +3,7 @@ package com.rafaelom.tamias.company;
 import com.rafaelom.tamias.address.Address;
 import lombok.Data;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Data
@@ -11,6 +12,7 @@ public class Company {
     @Id
     private String id;
     private String companyName;
+    //@Indexed(unique=true)
     private String nif;
     private Address address;
     private Boolean isIssuer;

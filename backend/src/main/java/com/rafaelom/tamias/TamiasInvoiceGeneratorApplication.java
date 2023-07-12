@@ -46,17 +46,49 @@ public class TamiasInvoiceGeneratorApplication {
 							"28001"),
 					true
 			);
-			Product p= new Product("Seguro de vida",1,50.0, 21.0);
+			Product p= new Product("ordenador",1,50.0, 21.0);
 
 			List<Product> products = new ArrayList<>();
 			products.add(p);
-			Invoice invoice = new Invoice(2L,
+			Invoice invoice = new Invoice(1L,
 									company,
 									company2,
 									products
 								);
 			try{
 				repository.insert(invoice);
+			}catch (org.springframework.dao.DuplicateKeyException e){
+				System.out.printf("Error while writing in mongoDB %s", e.getMessage());
+			}
+
+		};
+	}
+	@Bean
+	CommandLineRunner runner2(CompanyRepository repository){
+		return args -> {
+			Company company = new Company(
+					"Empresa de malaga",
+					"1111111",
+					new Address("paco de la torre",
+							"15 bajo",
+							"spain",
+							"malaga",
+							"29001"),
+					true
+			);
+			Company company2 = new Company(
+					"Empresa de sevilla",
+					"1111111",
+					new Address("cuevas bajas",
+							"15 bajo",
+							"spain",
+							"sevilla",
+							"28001"),
+					true
+			);
+
+			try{
+				repository.insert(company);
 			}catch (org.springframework.dao.DuplicateKeyException e){
 				System.out.printf("Error while writing in mongoDB %s", e.getMessage());
 			}
