@@ -37,4 +37,11 @@ public class InvoiceController {
         return invoiceService.getAllInvoicesByRecipientCompanyNif(nif);
     }
 
+
+    //TO-DO NIF CHEKING AND FILTER IS NEEDED
+    @PostMapping
+    public void createInvoice(@RequestBody Invoice invoice){
+        invoiceService.createInvoice(invoice);
+    }
+
 }

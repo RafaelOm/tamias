@@ -20,6 +20,7 @@ import java.util.List;
 public class Invoice {
     @Id
     private String id;
+    @Indexed
     private Long invoiceNumber;
     private Company issuerCompany;
     private Company recipientCompany;
