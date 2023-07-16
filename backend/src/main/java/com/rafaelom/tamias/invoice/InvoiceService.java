@@ -38,12 +38,11 @@ public class InvoiceService {
         return invoice.isPresent() ? invoice.get() : null ;
     }
 
-    public void createInvoice(Invoice invoice){
+    public Invoice createInvoice(Invoice invoice){
         Long newInvoiceNumber= getLastInvoiceNumber(invoice) + 1;
         invoice.setInvoiceNumber(newInvoiceNumber);
-        invoiceRepository.insert(invoice);
-
-
+        Invoice createdInvoice= invoiceRepository.insert(invoice);
+        return createdInvoice;
     }
 
 
