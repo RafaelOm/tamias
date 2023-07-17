@@ -40,7 +40,7 @@ public class InvoiceController {
 
     //TO-DO NIF CHEKING AND FILTER IS NEEDED
     @PostMapping
-    public Invoice createInvoice(@RequestBody Invoice invoice){
+    public Invoice createInvoice(@RequestBody InvoiceDTO invoice){
        return invoiceService.createInvoice(invoice);
     }
 

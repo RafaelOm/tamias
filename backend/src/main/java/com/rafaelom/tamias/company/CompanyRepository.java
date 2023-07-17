@@ -7,5 +7,7 @@ import java.util.Optional;
 
 public interface CompanyRepository extends MongoRepository<Company, String> {
     Optional<List<Company>> findByCompanyName (String companyName);
+    Optional<Company> findByNif (String nif);
+
 
 }
